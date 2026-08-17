@@ -1,0 +1,47 @@
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
+
+// Self-hosted rather than next/font/google: Next's Google Fonts manifest points
+// at Archivo URLs that 404, and self-hosting keeps the build off the network.
+// Both files are the latin-subset variable builds, which cover all copy on the
+// site (including ·, —, and curly quotes).
+const archivo = localFont({
+  src: "./fonts/Archivo-latin.woff2",
+  weight: "400 800",
+  style: "normal",
+  variable: "--font-archivo",
+  display: "swap",
+  fallback: ["Helvetica", "Arial", "sans-serif"],
+});
+
+const jetbrainsMono = localFont({
+  src: "./fonts/JetBrainsMono-latin.woff2",
+  weight: "400 500",
+  style: "normal",
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+});
+
+export const metadata: Metadata = {
+  title: "The Deployment Club — Deploy Together",
+  description:
+    "A club for the people who take software the last mile. We meet, we demo, we deploy on Fridays.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${archivo.variable} ${jetbrainsMono.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}

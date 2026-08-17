@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Archivo', Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.6; }
+  ::selection { background: #f5821e; color: #fff; }
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; background: #000; color: #fff">
+  <nav style="display: flex; align-items: center; justify-content: space-between; padding: 8px 40px; position: sticky; top: 0; background: #000; z-index: 10; color: #fff">
+    <a href="Deployment Club Landing.dc.html" style="display: flex; align-items: center"><img src="assets/logo-dark.png" alt="TDC — The Deployment Club" style="height: 64px; display: block"></a>
+    <div style="display: flex; gap: 10px; font-size: 14px; font-weight: 500">
+      <a href="Manifesto.dc.html" style="padding: 9px 20px; border-radius: 999px; color: #fff; background: linear-gradient(160deg, rgba(255,255,255,0.32), rgba(255,255,255,0.14) 45%, rgba(255,255,255,0.24)); backdrop-filter: blur(24px) saturate(170%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), inset 0 10px 18px -12px rgba(255,255,255,0.3), inset 0 -10px 16px -10px rgba(0,0,0,0.5), 0 10px 30px -12px rgba(0,0,0,0.6); transition: all 0.35s cubic-bezier(0.2, 1.4, 0.3, 1)">Manifesto</a>
+      <a href="Deployment Club Landing.dc.html" style="padding: 9px 20px; border-radius: 999px; color: #fff; background: linear-gradient(160deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.12)); backdrop-filter: blur(24px) saturate(170%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), inset 0 10px 18px -12px rgba(255,255,255,0.3), inset 0 -10px 16px -10px rgba(0,0,0,0.5), 0 10px 30px -12px rgba(0,0,0,0.6); transition: all 0.35s cubic-bezier(0.2, 1.4, 0.3, 1)" style-hover="background: linear-gradient(160deg, rgba(255,255,255,0.3), rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.2)); border-color: rgba(255,255,255,0.5); transform: translateY(-2px) scale(1.04); opacity: 1" style-active="transform: translateY(0) scale(0.98)">The Club</a>
+      <a href="Join the Club.dc.html" style="padding: 9px 20px; border-radius: 999px; color: #fff; background: linear-gradient(160deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.12)); backdrop-filter: blur(24px) saturate(170%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), inset 0 10px 18px -12px rgba(255,255,255,0.3), inset 0 -10px 16px -10px rgba(0,0,0,0.5), 0 10px 30px -12px rgba(0,0,0,0.6); transition: all 0.35s cubic-bezier(0.2, 1.4, 0.3, 1)" style-hover="background: linear-gradient(160deg, rgba(255,255,255,0.3), rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.2)); border-color: rgba(255,255,255,0.5); transform: translateY(-2px) scale(1.04); opacity: 1" style-active="transform: translateY(0) scale(0.98)">Chapters</a>
+    </div>
+    <a href="Join the Club.dc.html" style="padding: 10px 22px; font-size: 14px; font-weight: 600; border-radius: 999px; color: #fff; background: linear-gradient(160deg, rgba(245,130,30,0.55), rgba(245,130,30,0.28) 45%, rgba(245,130,30,0.45)); backdrop-filter: blur(24px) saturate(170%); border: 1px solid rgba(255,175,100,0.55); box-shadow: inset 0 1px 1px rgba(255,220,180,0.5), inset 0 10px 18px -12px rgba(255,200,150,0.35), inset 0 -10px 16px -10px rgba(120,50,0,0.5), 0 10px 30px -12px rgba(245,130,30,0.45); transition: all 0.35s cubic-bezier(0.2, 1.4, 0.3, 1)" style-hover="background: linear-gradient(160deg, rgba(245,130,30,0.75), rgba(245,130,30,0.45) 45%, rgba(245,130,30,0.6)); border-color: rgba(255,200,140,0.7); transform: translateY(-2px) scale(1.04); opacity: 1" style-active="transform: translateY(0) scale(0.98)">Join the club</a>
+  </nav>
+
+  <main style="max-width: 860px; width: 100%; margin: 0 auto; padding: 96px 40px 140px; box-sizing: border-box; display: flex; flex-direction: column; gap: 0">
+    <div style="font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #f5821e; margin-bottom: 28px">&gt;_ manifesto</div>
+    <h1 style="margin: 0 0 56px; font-size: clamp(48px, 6.5vw, 88px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; text-wrap: balance">Great people. Real problems. Technology deployed where it matters.</h1>
+
+    <div style="display: flex; flex-direction: column; gap: 40px; font-size: 19px; line-height: 1.65; color: #c9c9c9; max-width: 680px">
+      <p style="margin: 0; text-wrap: pretty">Software isn't finished when it compiles. It's finished when someone else is using it. Between those two moments sits the hardest, least glamorous work in the industry — and the people who do it rarely have a room of their own.</p>
+      <p style="margin: 0; text-wrap: pretty">This is that room. The Deployment Club is a private community for forward deployed engineers, the people who show up on-site, sit next to the customer, and make the technology actually work in the mess of the real world.</p>
+      <div style="border-left: 2px solid #f5821e; padding-left: 28px; font-size: 24px; font-weight: 600; color: #fff; letter-spacing: -0.01em; line-height: 1.4">We believe the last mile is the whole job. Everything before it is preparation.</div>
+      <p style="margin: 0; text-wrap: pretty">We keep it simple. You demo what you deployed, not what you planned. Numbers beat adjectives. Postmortems stay off the record. And nobody presents a slide deck about work they haven't shipped.</p>
+    </div>
+
+    <div style="margin-top: 72px; border-top: 1px solid #2a2a2a; padding-top: 48px; display: flex; flex-direction: column; gap: 20px">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #f5821e">The rules</div>
+      <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
+        <div style="display: flex; gap: 20px; align-items: baseline; border-bottom: 1px solid #1c1c1c; padding-bottom: 20px">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #666; flex-shrink: 0">{{ r.num }}</div>
+          <div style="font-size: 18px; line-height: 1.5; color: #e8e8e8">{{ r.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top: 72px; display: flex; gap: 12px">
+      <a href="Join the Club.dc.html" style="padding: 15px 32px; font-size: 15px; font-weight: 700; border-radius: 999px; color: #fff; background: linear-gradient(160deg, rgba(245,130,30,0.55), rgba(245,130,30,0.28) 45%, rgba(245,130,30,0.45)); backdrop-filter: blur(24px) saturate(170%); border: 1px solid rgba(255,175,100,0.55); box-shadow: inset 0 1px 1px rgba(255,220,180,0.5), inset 0 10px 18px -12px rgba(255,200,150,0.35), inset 0 -10px 16px -10px rgba(120,50,0,0.5), 0 10px 30px -12px rgba(245,130,30,0.45); transition: all 0.35s cubic-bezier(0.2, 1.4, 0.3, 1)" style-hover="background: linear-gradient(160deg, rgba(245,130,30,0.75), rgba(245,130,30,0.45) 45%, rgba(245,130,30,0.6)); border-color: rgba(255,200,140,0.7); transform: translateY(-2px) scale(1.04); opacity: 1" style-active="transform: translateY(0) scale(0.98)">Join the club</a>
+      <a href="Deployment Club Landing.dc.html" style="padding: 15px 32px; font-size: 15px; font-weight: 600; border-radius: 999px; color: #fff; background: linear-gradient(160deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.12)); backdrop-filter: blur(24px) saturate(170%); border: 1px solid rgba(255,255,255,0.3); box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), inset 0 10px 18px -12px rgba(255,255,255,0.3), inset 0 -10px 16px -10px rgba(0,0,0,0.5), 0 10px 30px -12px rgba(0,0,0,0.6); transition: all 0.35s cubic-bezier(0.2, 1.4, 0.3, 1)" style-hover="background: linear-gradient(160deg, rgba(255,255,255,0.3), rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.2)); border-color: rgba(255,255,255,0.5); transform: translateY(-2px) scale(1.04); opacity: 1" style-active="transform: translateY(0) scale(0.98)">Back home</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      rules: [
+        { num: '/01', text: 'No BS, bring your A game & innovate with peers.' },
+        { num: '/02', text: 'What\u2019s shared in the room stays in the room. Incident stories are off the record.' },
+        { num: '/03', text: 'Specifics beat adjectives. Bring numbers, logs, and timelines.' },
+        { num: '/04', text: 'No pitching, no recruiting spam. Peers first.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
