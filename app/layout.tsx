@@ -27,7 +27,7 @@ const jetbrainsMono = localFont({
 export const metadata: Metadata = {
   title: "The Deployment Club — Deploy Together",
   description:
-    "A club for the people who take software the last mile. We meet, we demo, we deploy on Fridays.",
+    "The community solving the biggest bottleneck in AI - Deployment.",
 };
 
 export const viewport: Viewport = {
