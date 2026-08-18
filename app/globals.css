@@ -198,6 +198,13 @@ input::placeholder {
   gap: 10px;
   font-size: 14px;
   font-weight: 500;
+  /* Absolutely centered on the bar itself, so the pills sit on the page
+     centerline regardless of how wide the logo and CTA are. .nav is
+     position: sticky, which is the containing block. Reset at <=760px,
+     where the pills wrap onto their own row. */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav__pill {
@@ -216,19 +223,20 @@ input::placeholder {
 .hero {
   background: var(--black);
   color: var(--white);
-  display: grid;
-  /* minmax(0, …) so the keycap row's intrinsic width can't stretch the track
-     past the viewport on narrow screens. */
-  grid-template-columns: minmax(0, 1fr);
+  /* Centered flex column so the keys, eyebrow, H1, sub and CTAs all share
+     one centerline. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 80px;
   flex: 1;
-  align-content: center;
 }
 
 .hero__keys {
   width: 600px;
   max-width: 100%;
-  margin: 64px auto 0;
+  margin-top: 64px;
   display: flex;
   gap: 1.6%;
   justify-content: center;
@@ -601,6 +609,10 @@ input::placeholder {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
+    /* Undo the desktop absolute centering so the pills take their own row. */
+    position: static;
+    left: auto;
+    transform: none;
   }
 
   .nav__logo img {

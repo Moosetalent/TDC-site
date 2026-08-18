@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type NavKey = "manifesto" | "club" | "chapters";
+type NavKey = "manifesto" | "club";
 
 const LINKS: { key: NavKey; label: string; href: string }[] = [
   { key: "manifesto", label: "Manifesto", href: "/manifesto" },
   { key: "club", label: "The Club", href: "/" },
-  { key: "chapters", label: "Chapters", href: "/join" },
 ];
 
 export default function Nav({

@@ -46,13 +46,13 @@ Active-page nav pill: clear glass with stronger gradient (`0.32/0.14/0.24`), no 
 ### 1. Landing (`/`) — `Deployment Club Landing.dc.html`
 - **Nav** (shared across pages, sticky top, solid `#000`, `padding: 8px 40px`, space-between):
   - Logo `assets/logo-dark.png` at height 64px, links to `/`.
-  - Center: three clear-glass pills, 14px/500, `padding: 9px 20px`, 10px gap: Manifesto → `/manifesto`, The Club → `/`, Chapters → `/join`.
+  - Center: two clear-glass pills, absolutely centered in the bar (`position: absolute; left: 50%; translateX(-50%)`), 14px/500, `padding: 9px 20px`, 10px gap: Manifesto → `/manifesto`, The Club → `/`. (No Chapters link.)
   - Right: orange-glass pill "Join the club" → `/join`, 14px/600, `padding: 10px 22px`.
 - **Hero** (fills remaining viewport: page is `min-height: 100vh` flex column, header `flex: 1`, `align-content: center`, black bg, centered text, `padding-bottom: 80px`):
-  - Keycap row: 600px wide (tweakable 400–920), centered, `margin-top: 64px`, flex `gap: 1.6%`; four images `assets/key-1..4.png` (widths 24.5% / 24.2% / 23.5% / 24.5%), transparent PNGs. Each key: `transition: transform 0.5s cubic-bezier(0.3, 1.8, 0.4, 1)`; hover `translateY(-16px) scale(1.06)` (springy pop).
+  - Keycap row: 600px wide, centered, `margin-top: 64px`, flex `gap: 1.6%`; header is a centered flex column (keys, eyebrow, H1, sub, CTAs all share one centerline); four images `assets/key-1..4.png` (widths 24.5% / 24.2% / 23.5% / 24.5%), transparent PNGs. Each key: `transition: transform 0.5s cubic-bezier(0.3, 1.8, 0.4, 1)`; hover `translateY(-16px) scale(1.06)` (springy pop).
   - Eyebrow: JetBrains Mono 13px, `letter-spacing: 0.18em`, uppercase, orange — "Members-only · Est. 2026". 24px gap between stacked hero items; text block `padding: 40px 40px 0`.
   - H1: Archivo 800, `clamp(56px, 8vw, 110px)`, `letter-spacing: -0.03em`, `line-height: 0.95` — "**Deploy** Together" with "Deploy" in orange.
-  - Sub: 19px/1.5, `#b3b3b3`, max-width 560px — "A club for the people who take software the last mile. We meet, we demo, we deploy on Fridays."
+  - Sub: 19px/1.5, `#b3b3b3`, max-width 560px — "The community solving the biggest bottleneck in AI - Deployment."
   - CTAs (12px gap, `margin-top: 8px`): orange glass "Join the club" → `/join`; clear glass "Read the manifesto" → `/manifesto`; both 15px, `padding: 15px 32px`, weights 700/600.
 
 ### 2. Manifesto (`/manifesto`) — `Manifesto.dc.html`

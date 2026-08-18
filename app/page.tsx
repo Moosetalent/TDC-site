@@ -35,8 +35,7 @@ export default function Home() {
             <span className="accent">Deploy</span> Together
           </h1>
           <p className="hero__sub">
-            A club for the people who take software the last mile. We meet, we
-            demo, we deploy on Fridays.
+            The community solving the biggest bottleneck in AI - Deployment.
           </p>
           <div className="hero__ctas">
             <Link href="/join" className="glass glass--orange btn-lg btn-lg--primary">

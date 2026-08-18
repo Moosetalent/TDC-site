@@ -17,7 +17,7 @@ const STATS = [
 export default function Join() {
   return (
     <div className="page">
-      <Nav current="chapters" ctaHref="#form" />
+      <Nav ctaHref="#form" />
 
       <main className="join">
         <div className="join__intro">
