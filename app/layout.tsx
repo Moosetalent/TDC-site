@@ -29,7 +29,11 @@ export const metadata: Metadata = {
   // request context to infer an origin from, so the production origin is
   // pinned here. app/opengraph-image.tsx and app/twitter-image.tsx are
   // resolved against it automatically.
-  metadataBase: new URL("https://thedeployment.club"),
+  //
+  // www, not the apex: Vercel 308s thedeployment.club to www, and not every
+  // crawler follows a redirect on og:image. Pointing straight at the
+  // canonical host removes the hop.
+  metadataBase: new URL("https://www.thedeployment.club"),
   title: "The Deployment Club — Deploy Together",
   description:
     "The community solving the biggest bottleneck in AI - Deployment.",
