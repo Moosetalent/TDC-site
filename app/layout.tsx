@@ -25,9 +25,28 @@ const jetbrainsMono = localFont({
 });
 
 export const metadata: Metadata = {
+  // Unfurlers reject relative image paths, and the static export has no
+  // request context to infer an origin from, so the production origin is
+  // pinned here. app/opengraph-image.tsx and app/twitter-image.tsx are
+  // resolved against it automatically.
+  metadataBase: new URL("https://thedeployment.club"),
   title: "The Deployment Club — Deploy Together",
   description:
     "The community solving the biggest bottleneck in AI - Deployment.",
+  openGraph: {
+    type: "website",
+    siteName: "The Deployment Club",
+    url: "/",
+    title: "The Deployment Club — Deploy Together",
+    description:
+      "The community solving the biggest bottleneck in AI - Deployment.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Deployment Club — Deploy Together",
+    description:
+      "The community solving the biggest bottleneck in AI - Deployment.",
+  },
 };
 
 export const viewport: Viewport = {
