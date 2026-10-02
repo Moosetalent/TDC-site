@@ -754,8 +754,8 @@ input::placeholder {
 
 .deployed__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 20px;
 }
 
 .deployed__card {
@@ -813,13 +813,21 @@ input::placeholder {
 }
 
 .deployed__name {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 .deployed__role {
   color: var(--text-dim);
+  font-size: 13px;
+}
+
+.deployed__card--feature .deployed__name {
+  font-size: 20px;
+}
+
+.deployed__card--feature .deployed__role {
   font-size: 16px;
 }
 
