@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import DeployedForm from "./DeployedForm";
 
 export const metadata: Metadata = {
-  title: "Deployed — The Deployment Club",
+  title: "Deployed | The Deployment Club",
   description:
     "The forward deployed engineers making AI actually work inside real companies. Nominated by the industry, shipped to the front page.",
 };

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Nav from "../components/Nav";
 
 export const metadata: Metadata = {
-  title: "Manifesto — The Deployment Club",
+  title: "Manifesto | The Deployment Club",
   description:
     "Great people. Real problems. Technology deployed where it matters.",
 };
@@ -37,7 +37,7 @@ export default function Manifesto() {
           <p>
             Software isn&apos;t finished when it compiles. It&apos;s finished
             when someone else is using it. Between those two moments sits the
-            hardest, least glamorous work in the industry — and the people who
+            hardest, least glamorous work in the industry, and the people who
             do it rarely have a room of their own.
           </p>
           <p>

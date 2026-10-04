@@ -19,10 +19,10 @@ export default function Nav({
 }) {
   return (
     <nav className="nav">
-      <Link href="/" className="nav__logo" aria-label="TDC — The Deployment Club">
+      <Link href="/" className="nav__logo" aria-label="TDC | The Deployment Club">
         <Image
           src="/assets/logo-dark.png"
-          alt="TDC — The Deployment Club"
+          alt="TDC | The Deployment Club"
           width={213}
           height={64}
           priority

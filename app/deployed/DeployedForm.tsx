@@ -41,7 +41,7 @@ export default function DeployedForm() {
         <div className="join__confirm">
           <div className="join__confirm-tag">&gt;_ nomination received</div>
           <div className="join__confirm-title">
-            Thanks — we&apos;ve got it.
+            Thanks, we&apos;ve got it.
           </div>
           <div className="join__confirm-body">
             Nominees are reviewed monthly. We&apos;ll be in touch before

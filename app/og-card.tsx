@@ -33,7 +33,7 @@ const KEYS = [
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "The Deployment Club — Deploy Together. The community solving the biggest bottleneck in AI - Deployment.";
+  "The Deployment Club | Deploy Together. The community solving the biggest bottleneck in AI - Deployment.";
 
 export default function Card() {
   return new ImageResponse(

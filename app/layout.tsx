@@ -34,20 +34,20 @@ export const metadata: Metadata = {
   // crawler follows a redirect on og:image. Pointing straight at the
   // canonical host removes the hop.
   metadataBase: new URL("https://www.thedeployment.club"),
-  title: "The Deployment Club — Deploy Together",
+  title: "The Deployment Club | Deploy Together",
   description:
     "The community solving the biggest bottleneck in AI - Deployment.",
   openGraph: {
     type: "website",
     siteName: "The Deployment Club",
     url: "/",
-    title: "The Deployment Club — Deploy Together",
+    title: "The Deployment Club | Deploy Together",
     description:
       "The community solving the biggest bottleneck in AI - Deployment.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Deployment Club — Deploy Together",
+    title: "The Deployment Club | Deploy Together",
     description:
       "The community solving the biggest bottleneck in AI - Deployment.",
   },
