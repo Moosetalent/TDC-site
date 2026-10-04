@@ -9,23 +9,51 @@ const ROLES = [
   { value: "hiring", label: "Hiring manager" },
 ];
 
+// Catch Hook webhook (Zapier) -> Lookup Table (role code -> label) ->
+// Create Data Source Item (Notion). Body must be sent as
+// application/x-www-form-urlencoded (via URLSearchParams) rather than
+// JSON.stringify: under fetch's no-cors mode the browser can only send a
+// CORS-safelisted Content-Type, so a JSON body silently gets sent as
+// text/plain and Zapier's Catch Hook can't parse it into individual fields.
+const ZAPIER_ENDPOINT =
+  "https://hooks.zapier.com/hooks/catch/24545096/4mzjnhj/";
+
+type Status = "idle" | "sending" | "sent" | "error";
+
 export default function JoinForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("fde");
   const [city, setCity] = useState("");
   const [lastDeploy, setLastDeploy] = useState("");
-  const [joined, setJoined] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
-  // Client-side only: swap the card to its confirmation state. Wire this up to
-  // an API route or email provider when there is somewhere to send it.
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    void { name, email, role, city, lastDeploy };
-    setJoined(true);
+
+    setStatus("sending");
+    try {
+      // no-cors: Zapier's catch-hook response isn't readable from the
+      // browser anyway, and we don't want a CORS quirk to look like a
+      // failed submission when the webhook actually received it fine.
+      await fetch(ZAPIER_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams({
+          name,
+          email,
+          role,
+          city,
+          lastDeploy,
+        }),
+      });
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (joined) {
+  if (status === "sent") {
     return (
       <div id="form" className="join__form">
         <div className="join__confirm">
@@ -95,11 +123,19 @@ export default function JoinForm() {
         />
       </label>
 
-      <button type="submit" className="glass glass--orange join__submit">
-        Request to join
+      <button
+        type="submit"
+        className="glass glass--orange join__submit"
+        disabled={status === "sending"}
+      >
+        {status === "sending" ? "Submitting…" : "Request to join"}
       </button>
 
-      <div className="join__note">No spam. One email per release cycle.</div>
+      <div className="join__note">
+        {status === "error"
+          ? "That didn't send. Check your connection and try again."
+          : "No spam. One email per release cycle."}
+      </div>
     </form>
   );
 }
