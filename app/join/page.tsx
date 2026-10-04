@@ -21,7 +21,7 @@ export default function Join() {
 
       <main className="join">
         <div className="join__intro">
-          <div className="join__eyebrow">&gt;_ init membership</div>
+          <div className="join__eyebrow">&gt;_ membership</div>
           <h1 className="join__title">
             Your finger is already on the <span className="accent">key</span>.
           </h1>
