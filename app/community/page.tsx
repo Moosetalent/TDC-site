@@ -167,9 +167,6 @@ export default function Community() {
             >
               Join the club
             </Link>
-            <Link href="/manifesto" className="glass btn-lg">
-              Read the manifesto
-            </Link>
           </div>
         </section>
       </main>

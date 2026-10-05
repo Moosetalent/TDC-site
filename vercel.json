@@ -6,7 +6,24 @@
   "headers": [
     {
       "source": "/(opengraph-image|twitter-image)",
-      "headers": [{ "key": "Content-Type", "value": "image/png" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/png"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/manifesto",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/manifesto/",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }

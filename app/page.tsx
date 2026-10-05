@@ -41,9 +41,6 @@ export default function Home() {
             <Link href="/join" className="glass glass--orange btn-lg btn-lg--primary">
               Join the club
             </Link>
-            <Link href="/manifesto" className="glass btn-lg">
-              Read the manifesto
-            </Link>
           </div>
         </div>
       </header>
