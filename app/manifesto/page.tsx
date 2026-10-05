@@ -36,24 +36,27 @@ export default function Manifesto() {
         <div className="manifesto__body">
           <p>
             Software isn&apos;t finished when it compiles. It&apos;s finished
-            when someone else is using it. Between those two moments sits the
-            hardest, least glamorous work in the industry, and the people who
-            do it rarely have a room of their own.
+            when someone else is using it, and somewhere between those two
+            moments is the only room in the building where the roadmap and
+            the real world actually meet.
           </p>
           <p>
-            This is that room. The Deployment Club is a private community for
-            forward deployed engineers, the people who show up on-site, sit next
-            to the customer, and make the technology actually work in the mess
-            of the real world.
+            That room belongs to forward deployed engineers. You&apos;re the
+            feedback loop between the people building the product and the
+            people paying for it: the first to hear when something&apos;s
+            broken, the first to see when something clicks. You understand
+            product-market fit before the CEO does, because you&apos;re
+            standing next to the customer when it happens.
           </p>
           <div className="pull-quote">
             We believe the last mile is the whole job. Everything before it is
             preparation.
           </div>
           <p>
-            We keep it simple. You demo what you deployed, not what you planned.
-            Numbers beat adjectives. Postmortems stay off the record. And nobody
-            presents a slide deck about work they haven&apos;t shipped.
+            The best parts of the job rarely make it into a case study: the
+            late night shipping the fix that actually moves a customer&apos;s
+            numbers, the moment a skeptic turns into a champion. We think
+            that deserves a room of its own.
           </p>
         </div>
 
