@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
@@ -114,6 +115,25 @@ export default function Community() {
             </p>
           </div>
         </section>
+
+        <figure className="community__scene">
+          <Image
+            src="/assets/community-party.jpg"
+            alt="A packed warehouse party with an orange neon Deploy Together sign on the screen"
+            width={1496}
+            height={1051}
+            sizes="(max-width: 1120px) 100vw, 1040px"
+          />
+          <figcaption className="community__scene-caption">
+            <div>
+              <div className="community__scene-tag">~/dinners &amp; parties</div>
+              <p className="community__scene-line">
+                Big venue. Tons of swag. A party the FDE community actually
+                remembers.
+              </p>
+            </div>
+          </figcaption>
+        </figure>
 
         <section
           className="community__included"

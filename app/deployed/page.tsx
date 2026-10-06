@@ -48,6 +48,11 @@ const ROSTER: Nominee[] = [
     role: "Solutions Architect | OpenAI",
     photo: "/assets/deployed/james-hiester.jpg",
   },
+  {
+    name: "Sasha Rich",
+    role: "Founding Engineer | WithCoverage",
+    photo: "/assets/deployed/sasha-rich.jpg",
+  },
 ];
 
 export default function Deployed() {

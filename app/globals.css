@@ -1196,3 +1196,112 @@ input::placeholder {
     padding: 26px;
   }
 }
+
+/* ---------------------------------------------------------------
+   Community: party photo band
+   --------------------------------------------------------------- */
+.community__scene {
+  position: relative;
+  margin: 96px 0 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  aspect-ratio: 21 / 10;
+  max-width: 100%;
+  isolation: isolate;
+}
+.community__scene::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto auto;
+  width: 60%;
+  height: 90%;
+  background: radial-gradient(closest-side, #f5821e2e, #0000);
+  z-index: -1;
+  filter: blur(40px);
+}
+.community__scene img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 42%;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.community__scene:hover img {
+  transform: scale(1.045);
+}
+.community__scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, #0000 40%, #000000c7 82%, #000000ee),
+    linear-gradient(90deg, #000000a6, #0000 55%);
+  pointer-events: none;
+}
+.community__scene-caption {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 36px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.community__scene-tag {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.community__scene-line {
+  margin: 0;
+  font-size: clamp(26px, 3.6vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  max-width: 14em;
+  text-wrap: balance;
+}
+@media (prefers-reduced-motion: reduce) {
+  .community__scene img,
+  .community__scene:hover img {
+    transition: none;
+    transform: scale(1.02);
+  }
+}
+@media (max-width: 760px) {
+  .community__scene {
+    aspect-ratio: auto;
+    margin: 64px 0 0;
+    background: var(--card-bg);
+  }
+  .community__scene img {
+    position: static;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-position: 70% 45%;
+    transform: none;
+  }
+  .community__scene:hover img {
+    transform: none;
+  }
+  .community__scene::after {
+    inset: 0 0 auto 0;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(180deg, #0000 60%, #0d0d0d);
+  }
+  .community__scene-caption {
+    position: static;
+    padding: 4px 22px 26px;
+  }
+}
