@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import JoinForm from "./JoinForm";
 
 export const metadata: Metadata = {
-  title: "Join the Club | The Deployment Club",
+  title: "Apply to Join | The Deployment Club",
   description:
     "Membership is free and reviewed by humans. Tell us what you deploy and where, and we'll match you to the nearest chapter.",
 };

@@ -185,7 +185,7 @@ export default function Community() {
               href="/join"
               className="glass glass--orange btn-lg btn-lg--primary"
             >
-              Join the club
+              Apply to Join
             </Link>
           </div>
         </section>

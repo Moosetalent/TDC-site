@@ -47,11 +47,11 @@ export default function Nav({
 
       {ctaHref.startsWith("#") ? (
         <a href={ctaHref} className="glass glass--orange nav__cta">
-          Join the club
+          Apply to Join
         </a>
       ) : (
         <Link href={ctaHref} className="glass glass--orange nav__cta">
-          Join the club
+          Apply to Join
         </Link>
       )}
     </nav>

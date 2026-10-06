@@ -128,7 +128,7 @@ export default function JoinForm() {
         className="glass glass--orange join__submit"
         disabled={status === "sending"}
       >
-        {status === "sending" ? "Submitting…" : "Request to join"}
+        {status === "sending" ? "Submitting…" : "Apply to Join"}
       </button>
 
       <div className="join__note">

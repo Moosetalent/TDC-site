@@ -34,12 +34,15 @@ export default function Home() {
           <h1 className="hero__title">
             <span className="accent">Deploy</span> Together
           </h1>
+          <p className="hero__claim">
+            The home of Forward Deployed Engineering.
+          </p>
           <p className="hero__sub">
             The community solving the biggest bottleneck in AI - Deployment.
           </p>
           <div className="hero__ctas">
             <Link href="/join" className="glass glass--orange btn-lg btn-lg--primary">
-              Join the club
+              Apply to Join
             </Link>
           </div>
         </div>
