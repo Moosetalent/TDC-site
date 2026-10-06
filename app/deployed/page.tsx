@@ -53,6 +53,11 @@ const ROSTER: Nominee[] = [
     role: "Founding Engineer | WithCoverage",
     photo: "/assets/deployed/sasha-rich.jpg",
   },
+  {
+    name: "Dylan Barnacle",
+    role: "TPM | Realm Alliance (ex-Palantir)",
+    photo: "/assets/deployed/dylan-barnacle.jpg",
+  },
 ];
 
 export default function Deployed() {
