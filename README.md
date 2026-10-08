@@ -10,6 +10,7 @@ Next.js (App Router) implementation of the TDC three-page marketing site, built 
 | `/`          | `app/page.tsx`          | Landing — keycap hero, `Deploy Together`           |
 | `/manifesto` | `app/manifesto/page.tsx`| Manifesto + the four rules                          |
 | `/join`      | `app/join/page.tsx`     | Membership request form (client-side confirmation)  |
+| `/playbook`  | `app/playbook/page.tsx` | FDE Playbook download: email form → Zapier → Notion "Playbook Downloads", then unlocks `/downloads/The-Forward-Deployed-Engineer-Playbook.pdf`. Not in the nav; shared by link (`?src=` is recorded as Source). |
 
 ## Local development
 
