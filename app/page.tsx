@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "./components/Nav";
+import FdeMarket from "./components/FdeMarket";
 
 const KEYS = [
   { src: "/assets/key-1.png", alt: "Blank keycap", w: 148, h: 195, cls: "hero__key--1" },
@@ -47,6 +48,8 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      <FdeMarket />
     </div>
   );
 }

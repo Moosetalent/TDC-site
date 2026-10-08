@@ -1,0 +1,29 @@
+name: FDE Market
+
+# Runs the pipeline every day, and on demand from the Actions tab.
+on:
+  schedule:
+    - cron: "17 11 * * *" # 11:17 UTC daily (~6am Central)
+  workflow_dispatch: {}
+
+concurrency:
+  group: fde-market
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # No npm install needed: the pipeline has zero dependencies.
+      - name: Collect, classify and calculate
+        run: node pipeline/run.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLASSIFIER_MODEL: ${{ vars.CLASSIFIER_MODEL }}
