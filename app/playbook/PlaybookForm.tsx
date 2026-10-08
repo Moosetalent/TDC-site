@@ -17,10 +17,10 @@ const ROLES = [
 // Same encoding rules as JoinForm: URLSearchParams, not JSON, because
 // no-cors only allows CORS-safelisted Content-Types.
 //
-// TODO: paste the Catch Hook URL from the "Playbook Downloads" Zap here.
-// While it's empty the form still unlocks the download, but nothing is
-// recorded in Notion.
-const ZAPIER_ENDPOINT = "";
+// If this is ever emptied, the form still unlocks the download but nothing
+// is recorded in Notion.
+const ZAPIER_ENDPOINT =
+  "https://hooks.zapier.com/hooks/catch/24545096/41ys662/";
 
 const PLAYBOOK_PDF =
   "/downloads/The-Forward-Deployed-Engineer-Playbook.pdf";
