@@ -6,6 +6,7 @@
 // Supabase env vars are missing) the module renders nothing at all.
 
 import { useEffect, useState, type ReactNode } from "react";
+import { FDE_MARKET_SNAPSHOT as SNAP } from "./fdeMarketSnapshot";
 
 type Snapshot = {
   snapshot_date: string; // YYYY-MM-DD
@@ -26,14 +27,6 @@ const toTime = (d: string) => new Date(`${d}T00:00:00Z`).getTime();
 const fmtInt = (n: number) => n.toLocaleString("en-US");
 const fmtDate = (d: string) =>
   new Date(`${d}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-
-function timeAgo(iso: string) {
-  const mins = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 60_000));
-  if (mins < 60) return `${mins} min ago`;
-  const hrs = Math.round(mins / 60);
-  if (hrs < 48) return `${hrs} hour${hrs === 1 ? "" : "s"} ago`;
-  return `${Math.round(hrs / 24)} days ago`;
-}
 
 /** Newest snapshot at least `days` older than `latest` (history is newest-first). */
 function atLeastDaysBefore(history: Snapshot[], latest: Snapshot, days: number) {
@@ -148,6 +141,61 @@ function Tile({
 
 /* ------------------------------------------------------------------------ */
 
+function Shell({ note, children }: { note: ReactNode; children: ReactNode }) {
+  return (
+    <section className="market" aria-labelledby="fde-market-title">
+      <div className="market__panel">
+        <div className="market__head">
+          <div>
+            <h2 className="market__title" id="fde-market-title">
+              <span className="market__live" aria-hidden="true" />
+              The FDE Market <span className="market__slashes">//</span> <span className="accent">Live</span>
+            </h2>
+            <p className="market__tagline">Tracking the Forward Deployed Engineering market in real time.</p>
+          </div>
+        </div>
+        <div className="market__grid">{children}</div>
+        <p className="market__note">{note}</p>
+      </div>
+    </section>
+  );
+}
+
+const changeOf = (text: string): Delta => ({
+  text: text.replace(/^[+-]\s*/, ""),
+  dir: text.trim().startsWith("-") ? "down" : "up",
+});
+
+/** Hand-entered figures from fdeMarketSnapshot.ts, used until the pipeline runs. */
+function SnapshotMarket() {
+  return (
+    <Shell
+      note={
+        <>
+          *Median of the midpoint of published base salary ranges (USD), based on{" "}
+          {fmtInt(SNAP.medianBase.sampleSize)} roles. Figures as of {fmtDate(SNAP.asOf)}, {SNAP.asOf.slice(0, 4)}.
+        </>
+      }
+    >
+      <Tile icon="roles" value={fmtInt(SNAP.openRoles.value)} label="Open roles" change={changeOf(SNAP.openRoles.change)} />
+      <Tile
+        icon="pay"
+        value={`$${Math.round(SNAP.medianBase.value / 1000)}K`}
+        label="Median base*"
+        sub={`Based on ${fmtInt(SNAP.medianBase.sampleSize)} roles with published pay`}
+      />
+      <Tile icon="ai" value={`${SNAP.aiAgentsPct.value}%`} label="AI / Agents" change={changeOf(SNAP.aiAgentsPct.change)} />
+      <Tile
+        icon="companies"
+        value={fmtInt(SNAP.companiesHiring.value)}
+        label="Companies hiring"
+        change={changeOf(SNAP.companiesHiring.change)}
+      />
+      <Tile icon="growth" value={`${signed(SNAP.growth90Days.value)}%`} label="90-day growth" sub="Open roles" />
+    </Shell>
+  );
+}
+
 export default function FdeMarket() {
   const [history, setHistory] = useState<Snapshot[] | null>(null);
 
@@ -167,7 +215,7 @@ export default function FdeMarket() {
     return () => ctrl.abort();
   }, []);
 
-  if (!history?.length) return null;
+  if (!history?.length) return <SnapshotMarket />;
 
   const latest = history[0];
   const weekAgo = atLeastDaysBefore(history, latest, 7);
@@ -189,20 +237,15 @@ export default function FdeMarket() {
   const aiBase = ninety ?? weekAgo;
 
   return (
-    <section className="market" aria-labelledby="fde-market-title">
-      <div className="market__panel">
-        <div className="market__head">
-          <div>
-            <h2 className="market__title" id="fde-market-title">
-              <span className="market__live" aria-hidden="true" />
-              The FDE Market <span className="market__slashes">//</span> <span className="accent">Live</span>
-            </h2>
-            <p className="market__tagline">Tracking the Forward Deployed Engineering market in real time.</p>
-          </div>
-          <div className="market__updated">Updated {timeAgo(latest.taken_at)}</div>
-        </div>
-
-        <div className="market__grid">
+    <Shell
+      note={
+        <>
+          *Median of the midpoint of published base salary ranges (USD). Live roles from{" "}
+          {fmtInt(latest.tracked_companies)} company job boards, classified against TDC&apos;s definition of a
+          forward deployed engineer.
+        </>
+      }
+    >
           <Tile
             icon="roles"
             value={fmtInt(latest.open_roles)}
@@ -245,14 +288,6 @@ export default function FdeMarket() {
             sub={growth == null ? "Growth shows after 7 days" : "Open roles"}
             series={line((s) => s.open_roles)}
           />
-        </div>
-
-        <p className="market__note">
-          *Median of the midpoint of published base salary ranges (USD). Live roles from{" "}
-          {fmtInt(latest.tracked_companies)} company job boards, classified against TDC&apos;s definition of a
-          forward deployed engineer. Updated daily.
-        </p>
-      </div>
-    </section>
+    </Shell>
   );
 }
